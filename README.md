@@ -70,7 +70,7 @@ PhoneNumInput({
   )
   ```
 
-  ![empty input](https://raw.githubusercontent.com/chan132/separate_phone_number_input/master/images/err_not_sync_input.png)
+  ![empty input](https://raw.githubusercontent.com/chan132/separate_phone_number_input/master/images/err_not_sync_input.png){:height="50%" width="50%"}
 
 * helper text sync error state
 
@@ -87,7 +87,7 @@ PhoneNumInput({
   )
   ```
 
-  ![empty input](https://raw.githubusercontent.com/chan132/separate_phone_number_input/master/images/err_input.png)
+  ![empty input](https://raw.githubusercontent.com/chan132/separate_phone_number_input/master/images/err_input.png){:height="50%" width="50%"}
 
 
 
