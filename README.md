@@ -1,6 +1,6 @@
 # dseparate_phone_number_input
 
-This is an input box that automatically separates the phone number
+This is an input box that automatically separates the phone number.
 
 
 
@@ -56,10 +56,38 @@ PhoneNumInput({
 
 #### example
 
-|              error input (helper text not sync)              |                 helper text sync error state                 |
-| :----------------------------------------------------------: | :----------------------------------------------------------: |
-| ``` dart<br />PhoneNumInput(<br/>	helperText: "unregistered phone numbers automatically create accounts",<br/>  controller: _phoneController,<br/>  focusNode: _focusNode,<br/>  isShowHelperText: true,<br/>  isShowErrorState: true,<br/>  onNumInputComplete: (result) => print("the phone number is entered"),<br/>  onEditingComplete: () => print("complete editing"),<br/>)<br /> ``` | ```dart<br />PhoneNumInput(<br/>  helperText: "the phone number entered was incorrect",<br/>  controller: _phoneController,<br/>  focusNode: _focusNode,<br/>  isShowHelperText: true,<br/>	isShowErrorState: true,<br/>  helperTextSyncErrorState: true,<br/>  onNumInputComplete: (result) => print("the phone number is entered"),<br/>  onEditingComplete: () => print("complete editing"),<br/>)<br />``` |
-| ![empty input](https://raw.githubusercontent.com/chan132/separate_phone_number_input/master/images/err_not_sync_input.png) | ![empty input](https://raw.githubusercontent.com/chan132/separate_phone_number_input/master/images/err_input.png) |
+* error input (helper text not sync)
+
+  ```dart
+  PhoneNumInput(
+    helperText: "unregistered phone numbers automatically create accounts",
+    controller: _phoneController,
+    focusNode: _focusNode,
+    isShowHelperText: true,
+    isShowErrorState: true,
+    onNumInputComplete: (result) => print("the phone number is entered"),
+    onEditingComplete: () => print("complete editing"),
+  )
+  ```
+
+  ![empty input](https://raw.githubusercontent.com/chan132/separate_phone_number_input/master/images/err_not_sync_input.png)
+
+* helper text sync error state
+
+  ```dart
+  PhoneNumInput(
+    helperText: "the phone number entered was incorrect",
+    controller: _phoneController,
+    focusNode: _focusNode,
+    isShowHelperText: true,
+    isShowErrorState: true,
+    helperTextSyncErrorState: true,
+    onNumInputComplete: (result) => print("the phone number is entered"),
+    onEditingComplete: () => print("complete editing"),
+  )
+  ```
+
+  ![empty input](https://raw.githubusercontent.com/chan132/separate_phone_number_input/master/images/err_input.png)
 
 
 
