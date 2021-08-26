@@ -72,8 +72,6 @@ PhoneNumInput({
 
   <img src="https://raw.githubusercontent.com/chan132/separate_phone_number_input/master/images/err_not_sync_input.png" width="432px" height="768px" alt="err not sync input" align="left"/>
 
-  ![err not sync input](https://raw.githubusercontent.com/chan132/separate_phone_number_input/master/images/err_not_sync_input.png)
-
 * helper text sync error state
 
   ```dart
@@ -90,8 +88,6 @@ PhoneNumInput({
   ```
 
   <img src="https://raw.githubusercontent.com/chan132/separate_phone_number_input/master/images/err_input.png" width="432px" height="768px" alt="err not sync input" align="left"/>
-  
-  ![err input](https://raw.githubusercontent.com/chan132/separate_phone_number_input/master/images/err_input.png)
 
 
 
