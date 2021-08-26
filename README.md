@@ -56,6 +56,46 @@ PhoneNumInput({
 
 #### example
 
+<table>
+  <tr>
+    <td>error input (helper text not sync)</td>
+    <td>helper text sync error state</td>
+  </tr>
+  <tr>
+  	<td>
+    	```dart
+    	PhoneNumInput(
+        helperText: "unregistered phone numbers automatically create accounts",
+        controller: _phoneController,
+        focusNode: _focusNode,
+        isShowHelperText: true,
+        isShowErrorState: true,
+        onNumInputComplete: (result) => print("the phone number is entered"),
+        onEditingComplete: () => print("complete editing"),
+      )
+      ```
+    </td>
+    <td>
+      ```dart
+      PhoneNumInput(
+        helperText: "the phone number entered was incorrect",
+        controller: _phoneController,
+        focusNode: _focusNode,
+        isShowHelperText: true,
+        isShowErrorState: true,
+        helperTextSyncErrorState: true,
+        onNumInputComplete: (result) => print("the phone number is entered"),
+        onEditingComplete: () => print("complete editing"),
+      )
+      ```
+    </td>
+  </tr>
+  <tr>
+  	<td>![empty input](https://raw.githubusercontent.com/chan132/separate_phone_number_input/master/images/err_not_sync_input.png)</td>
+  	<td>![empty input](https://raw.githubusercontent.com/chan132/separate_phone_number_input/master/images/err_input.png)</td>
+  </tr>
+</table>
+
 * error input (helper text not sync)
 
   ```dart
@@ -70,7 +110,7 @@ PhoneNumInput({
   )
   ```
 
-  ![empty input](https://raw.githubusercontent.com/chan132/separate_phone_number_input/master/images/err_not_sync_input.png){:height="50%" width="50%"}
+  ![err not sync input](https://raw.githubusercontent.com/chan132/separate_phone_number_input/master/images/err_not_sync_input.png)
 
 * helper text sync error state
 
@@ -87,7 +127,7 @@ PhoneNumInput({
   )
   ```
 
-  ![empty input](https://raw.githubusercontent.com/chan132/separate_phone_number_input/master/images/err_input.png){:height="50%" width="50%"}
+  ![err input](https://raw.githubusercontent.com/chan132/separate_phone_number_input/master/images/err_input.png)
 
 
 
