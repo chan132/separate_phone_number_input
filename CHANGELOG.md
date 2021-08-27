@@ -5,3 +5,7 @@
 ## 0.0.2
 
 * Improve PUB POINTS.
+
+## 0.0.2+1
+
+* Update README.md.
