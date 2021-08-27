@@ -1,36 +1,104 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+/// The default value of [PhoneNumInput.inputBorderSideWidth].
 const double defaultInputBorderSideWidth = 0.5;
+
+/// The default value of [fontSize] of [PhoneNumInput.style].
 const double defaultTextSize = 14;
+
+/// The default value of [fontSize] of [PhoneNumInput.helperStyle].
 const double defaultHelperTextSize = 10;
-const double defaultIconBtnSize = 13;
-const double defaultIconBtnMaxSize = 30;
+
+/// The default value of [PhoneNumInput.clearBtnSize].
+const double defaultClearBtnSize = 13;
+
+/// The default value of [PhoneNumInput.clearBtnMaxSize].
+const double defaultClearBtnMaxSize = 30;
 
 class PhoneNumInput extends StatefulWidget {
+  /// The width of [PhoneNumInput].
   final double? width;
+
+  /// Empty space to surround the container and [PhoneNumInput].
   final EdgeInsetsGeometry? margin;
+
+  /// Text that suggests what sort of input the field accepts.
+  ///
+  /// See [InputDecoration.hintText] for details.
   final String? hintText;
+
+  /// The style to use for the [hintText].
+  ///
+  /// See [InputDecoration.hintStyle] for details.
   final TextStyle? hintStyle;
+
+  /// Text that provides context about the [InputDecorator.child]'s value, such
+  /// as how the value will be used.
+  ///
+  /// See [InputDecoration.helperText] for details.
   final String? helperText;
+
+  /// The style to use for the [helperText].
+  ///
+  /// See [InputDecoration.helperStyle] for details.
   final TextStyle? helperStyle;
+
+  /// The style to use for the text being edited.
+  ///
+  /// See [TextField.style] for details.
   final TextStyle? style;
-  final Widget? iconBtn;
-  final double iconBtnSize;
-  final double iconBtnMaxSize;
+
+  /// The clear button of [PhoneNumInput].
+  final Widget? clearBtn;
+
+  /// The size of the [clearBtn].
+  final double clearBtnSize;
+
+  /// The size of the constraints for the [clearBtn].
+  final double clearBtnMaxSize;
+
+  /// The width of this side of the border.
+  ///
+  /// See [BorderSide.width] for details.
   final double inputBorderSideWidth;
 
+  /// Controls the text being edited.
+  ///
+  /// See [TextField.controller] for details.
   final TextEditingController controller;
+
+  /// Defines the keyboard focus for this widget.
+  ///
+  /// See [TextField.focusNode] for details.
   final FocusNode? focusNode;
 
+  /// The callback with a length of 11.
   final ValueChanged<bool>? onNumInputComplete;
+
+  /// The callback with value change.
+  ///
+  /// See [TextField.onChanged] for details.
   final ValueChanged<String>? onChanged;
+
+  /// The type of action button to use for the keyboard.
+  ///
+  /// See [TextField.textInputAction] for details.
   final TextInputAction textInputAction;
+
+  /// See [TextField.onEditingComplete] for details.
   final VoidCallback? onEditingComplete;
 
+  /// Whether to show error state.
   final bool isShowErrorState;
+
+  /// Whether to show [helperText].
   final bool isShowHelperText;
+
+  /// Whether to show [InputBorder] of [PhoneNumInput].
   final bool isShowInputBorder;
+
+  /// Whether the Helper text is synchronized with the error state.
   final bool helperTextSyncErrorState;
 
   PhoneNumInput({
@@ -42,9 +110,9 @@ class PhoneNumInput extends StatefulWidget {
     this.helperText,
     this.helperStyle,
     this.style,
-    this.iconBtn,
-    this.iconBtnSize = defaultIconBtnSize,
-    this.iconBtnMaxSize = defaultIconBtnMaxSize,
+    this.clearBtn,
+    this.clearBtnSize = defaultClearBtnSize,
+    this.clearBtnMaxSize = defaultClearBtnMaxSize,
     this.inputBorderSideWidth = defaultInputBorderSideWidth,
     required this.controller,
     this.focusNode,
@@ -119,10 +187,11 @@ class _PhoneNumState extends State<PhoneNumInput> {
       margin: widget.margin ?? EdgeInsets.zero,
       width: widget.width,
       child: TextField(
+        // Autocorrect and enableSuggestions are false here because problems in
+        // calculating space positions are caused when pasting content directly
+        // in the input box.
         autocorrect: false,
-        // 是否启用自动更正
         enableSuggestions: false,
-        // 是否显示输入建议
         controller: widget.controller,
         focusNode: widget.focusNode,
         decoration: _buildInputDecoration(),
@@ -154,8 +223,8 @@ class _PhoneNumState extends State<PhoneNumInput> {
       enabledBorder: widget.isShowInputBorder ? _inputBorder : InputBorder.none,
       suffixIcon: hasFocus && hasTextInput ? _buildClearIcon() : null,
       suffixIconConstraints: BoxConstraints(
-        maxWidth: widget.iconBtnMaxSize,
-        maxHeight: widget.iconBtnMaxSize,
+        maxWidth: widget.clearBtnMaxSize,
+        maxHeight: widget.clearBtnMaxSize,
       ),
     );
   }
@@ -163,9 +232,9 @@ class _PhoneNumState extends State<PhoneNumInput> {
   Widget _buildClearIcon() {
     return IconButton(
       icon: Container(
-        width: widget.iconBtnSize,
-        height: widget.iconBtnSize,
-        child: widget.iconBtn ??
+        width: widget.clearBtnSize,
+        height: widget.clearBtnSize,
+        child: widget.clearBtn ??
             Icon(
               Icons.clear,
               color: Colors.grey,
@@ -189,8 +258,7 @@ class _PhoneNumState extends State<PhoneNumInput> {
         hasTextInput = tempHasInput;
       });
     }
-    // 2. if the content length reaches 11, the callback has been entered
-    // and completed
+    // 2. Call back when the content length reaches 11.
     bool tempIsInputComplete = nowText.length == 11;
     if (isInputComplete != tempIsInputComplete) {
       isInputComplete = tempIsInputComplete;
