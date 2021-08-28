@@ -70,7 +70,6 @@ PhoneNumInput({
   )
   ```
 
-
   ![err not sync input](https://raw.githubusercontent.com/chan132/separate_phone_number_input/master/images/err_not_sync_input.png)
 
 * helper text sync error state

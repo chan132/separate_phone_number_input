@@ -1,6 +1,6 @@
 name: separate_phone_number_input
 description: This is an input box that automatically separates the phone number.
-version: 0.0.2+1
+version: 0.0.2+2
 homepage: https://github.com/chan132/separate_phone_number_input
 
 environment:
